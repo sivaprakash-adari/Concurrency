@@ -10,10 +10,11 @@ class ProducerConsumer {
 private:
     queue<int> _data_queue;
     mutex   _mtx;
-    bool _done = false;
+    bool _done;
     condition_variable _cv;
 
 public:
+   ProducerConsumer() :_done(false){ }
    void producer() {
 
        for(int i=0; i<=10; i++) {
